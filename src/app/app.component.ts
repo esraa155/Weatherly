@@ -1,12 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone:false,
+
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'weather-app';
+  title = 'Weather Application';
+
+  // Method to scroll to the SearchComponent
+  navigateToHome(): void {
+    const element = document.getElementById('home-component');
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',  
+        block: 'start',      // Scrolls to the top of the element
+      });
+    }
+  }
 }

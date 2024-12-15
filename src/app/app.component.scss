@@ -1,0 +1,68 @@
+/* Body style */
+.body {
+  background-color: #9098a4;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom toolbar style */
+.custom-toolbar {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: #ffffff;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Toolbar title */
+.toolbar-title {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 1.8rem;
+}
+
+/* Icons section */
+.toolbar-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.toolbar-icons mat-icon {
+  cursor: pointer;
+  font-size: 1.8rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.toolbar-icons mat-icon:hover {
+  color: #ffcc00;
+  transform: scale(1.2);
+}
+
+/* Content style */
+.content {
+  padding: 2rem;
+  background: rgba(243, 244, 246, 0.8); 
+  min-height: calc(100vh - 64px); 
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Overlay style */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); 
+  z-index: -1;
+}

@@ -1,0 +1,26 @@
+<div class="search-container">
+  <!-- Search by city -->
+  <mat-form-field appearance="fill">
+    <!-- Label for the city search input field -->
+    <mat-label>Search by city</mat-label>
+    <!-- Input field for city search, with two-way data binding to 'query' variable -->
+    <input matInput [(ngModel)]="query">
+  </mat-form-field>
+  
+  <!-- Search button, triggers the 'onSearch()' method on click -->
+  <button mat-raised-button color="primary" (click)="onSearch()">Search</button>
+
+  <!-- Search by date -->
+  <mat-form-field appearance="fill">
+    <!-- Label for the date search input field -->
+    <mat-label>Search by date</mat-label>
+    <!-- Input field for date search, binds to 'selectedDate' using two-way data binding -->
+    <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">
+    
+    <!-- Datepicker toggle button (opens the date picker) -->
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+    <!-- Mat-datepicker component to select a date, with the reference #picker -->
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>

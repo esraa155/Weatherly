@@ -1,0 +1,32 @@
+<!-- Displaying details of a specific city if 'city' is available -->
+<div *ngIf="city" class="city-details">
+  
+  <!-- City Name -->
+  <h2 class="city-name">{{ city.city }}</h2>
+
+  <!-- Displaying the weather forecasts for the selected city -->
+  <div class="forecasts">
+    
+    <!-- Looping through each forecast in the 'forecast' array -->
+    <div *ngFor="let forecast of city.forecast" class="forecast">
+      
+      <!-- Displaying the forecast date -->
+      <div class="forecast-header">
+        <p><strong>Date:</strong> {{ forecast.date }}</p>
+      </div>
+      
+      <!-- Displaying forecast details: temperature and humidity -->
+      <div class="forecast-body">
+        
+        <!-- Showing the temperature, based on the selected unit (Celsius or Fahrenheit) -->
+        <p>
+          <strong>Temperature:</strong>
+          {{ getTemperature(forecast.temperatureCelsius, forecast.temperatureFahrenheit) }} °{{ temperatureUnit }}
+        </p>
+        
+        <!-- Showing the humidity -->
+        <p><strong>Humidity:</strong> {{ forecast.humidity }}%</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<app-search (searchCity)="onSearchCity($event)" (searchDate)="onSearchDate($event)"></app-search>
+<!-- The search component is used to search by city or date. The parent component listens for the `searchCity` and `searchDate` events and passes them to respective methods in the parent component. -->
+
+<div class="weather-dashboard">
+  <!-- Container for the weather dashboard -->
+
+  <!-- Toggle for Temperature Unit -->
+  <div class="controls">
+    <!-- Button to switch between Celsius and Fahrenheit -->
+    <button mat-raised-button (click)="toggleTemperatureUnit()">
+      Switch to {{ temperatureUnit === 'Celsius' ? 'Fahrenheit' : 'Celsius' }}
+      <!-- The button dynamically displays 'Celsius' or 'Fahrenheit' based on the current temperature unit -->
+    </button>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="loading-container">
+    <!-- Displays a loading spinner while data is being fetched -->
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <!-- No Results Found -->
+  <div *ngIf="noResultsFound" class="no-results">
+    <!-- Displays a message when no search results are found -->
+    <p>No results found. Please try again.</p>
+  </div>
+
+  <!-- Display Cities -->
+  <div *ngIf="!isLoading && filteredCities.length > 0" class="city-grid">
+    <!-- Displays a list of cities when data is loaded and there are results -->
+
+    <mat-card *ngFor="let city of filteredCities" class="city-card" (click)="showDetails(city)">
+      <!-- Loop through filteredCities to display each city in a card, and triggers `showDetails(city)` method on click -->
+      
+      <div class="card-header">
+        <h3>{{ city.city }}</h3>
+        <!-- City name displayed here -->
+        
+        <p>
+          <!-- Display the selected date if provided, otherwise display the latest available date from the forecast -->
+          {{ selectedDate ? (selectedDate | date:'longDate') : (getLatestForecast(city).date | date:'longDate') }}
+        </p>
+      </div>
+
+      <div class="card-body">
+        <!-- Body of the city card -->
+
+        <div class="temperature">
+          <!-- Display temperature -->
+          <span>{{ temperatureUnit === 'Celsius' ? city.forecast[0].temperatureCelsius : city.forecast[0].temperatureFahrenheit }}</span>
+          <span>°{{ temperatureUnit }}</span>
+          <!-- Dynamically display the temperature in the selected unit (Celsius or Fahrenheit) -->
+        </div>
+
+        <div class="humidity">
+          <!-- Display humidity -->
+          <p>Humidity: {{ city.forecast[0].humidity }}%</p>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<!-- City Details -->
+<app-city-details *ngIf="selectedCity" [city]="selectedCity" [temperatureUnit]="temperatureUnit"></app-city-details>
+<!-- Displays detailed information for the selected city using the CityDetailsComponent -->
+<!-- This is only shown when `selectedCity` is not null -->
+

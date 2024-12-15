@@ -1,0 +1,82 @@
+.city-details {
+  /* Adding a light border and gradient background to the city details container */
+  border: 2px solid #93c5fd; 
+  background: linear-gradient(135deg, #e0f2fe, #f9fafb); 
+  padding: 2rem;
+  border-radius: 16px; /* Rounded corners */
+  margin-top: 2rem; /* Space at the top */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Shadow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
+
+  /* Hover effect for the city details container */
+  &:hover {
+    transform: translateY(-10px); /* Slight lift effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  }
+
+  .city-name {
+    /* Styling for the city name */
+    font-size: 2rem;
+    font-weight: 700; /* Bold font weight */
+    color: #2563eb; /* Blue color for city name */
+    text-align: center; /* Center-align the text */
+    margin-bottom: 2rem; /* Space below the city name */
+  }
+
+  .forecasts {
+    /* Creating a grid for forecasts */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid layout */
+    gap: 1.5rem; /* Space between forecast items */
+
+    .forecast {
+      /* Styling for each forecast item */
+      background: #ffffff; /* White background for each forecast */
+      border-radius: 12px; /* Rounded corners */
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb; /* Light border */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+      transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition on hover */
+
+      /* Hover effect for each forecast */
+      &:hover {
+        transform: scale(1.05); /* Slightly enlarge the forecast */
+        background-color: #f3f4f6; /* Light background color change */
+      }
+
+      .forecast-header {
+        margin-bottom: 1rem; /* Space below the header */
+
+        p {
+          font-size: 1rem;
+          font-weight: bold; /* Bold header text */
+          color: #2563eb; /* Blue color for the header */
+        }
+      }
+
+      .forecast-body {
+        p {
+          font-size: 0.95rem; /* Slightly smaller font for the body */
+          margin: 0.5rem 0; /* Space between paragraphs */
+          color: #374151; /* Darker text color */
+          
+          strong {
+            color: #1e40af; /* Strong text in a darker blue */
+          }
+        }
+
+        .forecast-temperature {
+          display: flex;
+          align-items: center;
+          justify-content: space-between; /* Space between the temperature and the icon */
+          
+          .weather-icon {
+            width: 40px; /* Icon size */
+            height: 40px;
+            margin-right: 1rem; /* Space between icon and text */
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<mat-toolbar class="custom-toolbar">
+  <!-- Title of the toolbar, dynamically bound to the 'title' variable -->
+  <span class="toolbar-title">{{ title }}</span>
+
+  <!-- Container for the toolbar icons -->
+  <div class="toolbar-icons">
+    <!-- Home icon, which triggers 'onNavigateToHome()' method on click -->
+    <mat-icon (click)="onNavigateToHome()">home</mat-icon>
+    
+    <!-- Search icon, also triggers 'onNavigateToHome()' method on click. 
+         Consider changing the method if this should do something different. -->
+    <mat-icon (click)="onNavigateToHome()" class="search-icon">search</mat-icon> 
+    
+    <!-- Menu icon, currently without a click action -->
+    <mat-icon>menu</mat-icon>
+  </div>
+</mat-toolbar>
