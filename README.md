@@ -26,7 +26,7 @@ Steps
 
 Clone the project repository:
 
-git clone <[repository_url](https://github.com/esraa155/Weatherly/tree/main)>
+git clone <(https://github.com/esraa155/Weatherly/tree/main)>
 cd Weatherly
 
 Install the required dependencies:
